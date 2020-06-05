@@ -604,8 +604,7 @@ static int remove_package_files(alpm_handle_t *handle,
 	filelist = alpm_pkg_get_files(oldpkg);
 	for(i = 0; i < filelist->count; i++) {
 		alpm_file_t *file = filelist->files + i;
-		if(!should_skip_file(handle, newpkg, file->name)
-				&& !can_remove_file(handle, file)) {
+		if(!should_skip_file(handle, newpkg, file->name)) {
 			_alpm_log(handle, ALPM_LOG_DEBUG,
 					"not removing package '%s', can't remove all files\n",
 					oldpkg->name);
